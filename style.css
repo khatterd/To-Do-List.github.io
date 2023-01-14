@@ -1,0 +1,13 @@
+body {
+    text-align: center;
+  }
+  #top-box {
+    margin-top: 50px;
+  }
+  #outputTable {
+    margin: auto;
+    width: 20%;
+  }
+  #output {
+    margin-top: 50px;
+  }
