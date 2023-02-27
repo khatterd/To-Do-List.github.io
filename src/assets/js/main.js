@@ -28,16 +28,18 @@ function addtoList()
     else
     {
         task.push(taskValue);
-        window.alert("Task Added");
-        console.log(task);
+        localStorage.setItem("task", JSON.stringify(task))
         displayTasks();
     }
 }
+
+//To Display the Array 
 function displayTasks()
 {
-    var list = document.querySelector('.listBox')
+    tasklist = JSON.parse(localStorage.getItem("task"));
+    var list = document.querySelector('#listBox')
     
-    if (task.length == 0)
+    if (tasklist.length == 0)
     {   
         {
             list.innerHTML = "No Tasks Added";
@@ -46,10 +48,26 @@ function displayTasks()
     else
     {
         list.innerHTML = ""
-        for (let [index, value] of task.entries())
+        for (let [index, value] of tasklist.entries())
         {
-            list.innerHTML += `<li>${index} ${value}</li>`;
+            list.innerHTML += `<li>${value} <img onclick = "editTask(${index})" src = "src/assets/icons/pencil-square.svg"> <img onclick = "deleteTask(${index})" src = "src/assets/icons/x-square.svg"></li>`;
         }
     }
 }
 
+function editTask (index)
+{
+    let currentValue = task[index];
+    var newValue = prompt("Edit Task", currentValue);
+    task[index] = newValue;
+    localStorage.setItem("task", JSON.stringify(task))
+    displayTasks()
+}
+function deleteTask (index)
+{
+    task.splice(index, 1);
+    localStorage.setItem("task", JSON.stringify(task))
+    displayTasks()
+}
+
+  
