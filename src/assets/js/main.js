@@ -43,14 +43,18 @@ function displayTasks()
     {   
         {
             list.innerHTML = "No Tasks Added";
+            document.getElementById('clearbox').innerHTML ="" 
         }
     }
     else
     {
+        document.getElementById('clearbox').innerHTML = 
+        `<button class="btn btn-danger" onclick="clearTask()">Clear All</button>`
+
         list.innerHTML = ""
         for (let [index, value] of tasklist.entries())
         {
-            list.innerHTML += `<li>${value} <img onclick = "editTask(${index})" src = "src/assets/icons/pencil-square.svg"> <img onclick = "deleteTask(${index})" src = "src/assets/icons/x-square.svg"></li>`;
+            list.innerHTML += `<li class="list-group-item ">${value} <img onclick = "editTask(${index})" src = "src/assets/icons/pencil-square.svg"> <img onclick = "deleteTask(${index})" src = "src/assets/icons/x-square.svg"></li>`;
         }
     }
 }
@@ -69,5 +73,12 @@ function deleteTask (index)
     localStorage.setItem("task", JSON.stringify(task))
     displayTasks()
 }
+function clearTask()
+{
+    task.splice(0, task.length)
+    localStorage.setItem("task", JSON.stringify(task))
+    displayTasks()
+}
+
 
   
