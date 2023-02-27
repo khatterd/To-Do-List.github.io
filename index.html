@@ -15,11 +15,17 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./src/assets/css/main.css" />
     <title>To do List</title>
   </head>
   <body onload="LoadApp()">
-    <header>
+    <header class="bg-light">
       <div class="header">
         <h2>Tasker</h2>
         <img
@@ -77,7 +83,7 @@
       </div>
     </div>
 
-    <div class="centre">
+    <div class="border border-light border-4 rounded-4 taskbox">
       <ol class="list-group list-group-numbered" id="listBox"></ol>
     </div>
     <div id="clearbox" class="centre"></div>

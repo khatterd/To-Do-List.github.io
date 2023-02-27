@@ -1,22 +1,44 @@
-
+body{
+    background: rgb(36,34,52);
+    background: linear-gradient(90deg, rgba(36,34,52,1) 0%, rgba(48,44,77,1) 38%, rgba(64,57,110,1) 100%);
+}
 .header {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
   
 h2 {
     margin-right: 10px;
 }
 #addTaskButton {
-    padding-bottom: 0.3rem;
-    height: 1.7rem;
+    padding-bottom: 0.4rem;
+    height: 1.9rem;
 }
 .centre {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1rem;
 }
-    
+.taskbox
+{
+   margin-top: 1rem;
+   margin-right: 20%;
+   margin-left: 20%;
+   margin-bottom: 1rem;
+   height: 30rem;
+   padding-top: 1rem;
+   padding-left: 2rem;
+   padding-right: 2rem;
+   overflow:scroll;
+}
+#listBox
+{
+    padding-top: 20px;
+}
+h2
+{
+    font-family: 'Shrikhand', cursive;
+}
