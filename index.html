@@ -4,53 +4,80 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./src/assets/css/main.css" />
     <title>To do List</title>
   </head>
-  <body>
-    <style></style>
-    <div id="top-box">
-      <form name="inputbox" id="inputbox" action="#" method="GET">
-        <label>Task: </label><input type="text" name="task" />
-        <label>Due date: </label><input type="date" name="date" />
-      </form>
-      <br />
-      <br />
-      <input type="submit" value="Submit" onclick="result()" />
+  <body onload="LoadApp()">
+    <header>
+      <div class="header">
+        <h2>Tasker</h2>
+        <img
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+          id="addTaskButton"
+          src="./src/assets/icons/plus-square.svg"
+        />
+      </div>
+    </header>
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Task</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form name="inputbox" id="inputbox" action="#" method="GET">
+              <label class="form-label">Task </label
+              ><input class="form-control" type="text" name="task" required />
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button
+              data-bs-dismiss="modal"
+              type="button"
+              class="btn btn-primary"
+              onclick="addtoList()"
+            >
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="output">
-      <table id="outputTable">
-        <tr>
-          <td><b>Task</b></td>
-          <td><b>Due Date</b></td>
-          <td><b>Remove</b></td>
-        </tr>
-      </table>
-    </div>
-    <script>
-      function result() {
-        var task = document.inputbox.task.value;
-        var dueDate = document.inputbox.date.value;
 
-        var table = document.getElementById("outputTable");
-        var row = table.insertRow(1);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(1);
-
-        cell1.innerHTML = task;
-        cell2.innerHTML = dueDate;
-        cell3.innerHTML =
-          "<button onclick = 'Remove(this)' id='Remove';>Remove</button>";
-
-        document.getElementById("inputbox").reset();
-      }
-
-      function Remove(e) {
-        var r = e.parentNode.parentNode;
-
-        r.parentNode.removeChild(r);
-      }
-    </script>
+    <div class="listBox"></div>
+    <script src="./src/assets/js/main.js"></script>
   </body>
 </html>
